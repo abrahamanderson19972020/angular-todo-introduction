@@ -1,0 +1,17 @@
+<h3>{{ username }}'s To Do List</h3>
+<h6>{{ itemCount }} Items</h6>
+<br />
+<br />
+<h1>With Angular Material</h1>
+<mat-toolbar color="primary" class="mat-elevation-z3">
+  <span class="spacer"></span>
+  <span class="spacer">{{ username }}'s To Do List</span>
+  <span class="spacer"></span>
+  <mat-icon matBadge="{{ itemCount }}" matBadgeColor="accent"
+    >checklist</mat-icon
+  >
+</mat-toolbar>
+
+<div class="tableContainer">
+  <table mat-table [dataSource]=""></table>
+</div>
