@@ -29,6 +29,6 @@ export class AppComponent implements OnInit {
   }
 
   get items(): readonly ToDoItem[] {
-    return this.list.items;
+    return this.list.items.filter((item) => !item.complete);
   }
 }
