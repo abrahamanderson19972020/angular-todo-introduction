@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
     new ToDoItem('Get flowers'),
     new ToDoItem('Collect tickets'),
   ]);
+  showCompletedTodos: boolean = false;
 
   ngOnInit(): void {}
 
@@ -29,6 +30,13 @@ export class AppComponent implements OnInit {
   }
 
   get items(): readonly ToDoItem[] {
-    return this.list.items.filter((item) => !item.complete);
+    return this.list.items.filter(
+      (item) => this.showCompletedTodos || !item.complete
+    );
+  }
+  public addTask(todoText: string) {
+    if (todoText !== '') {
+      this.list.items.push(new ToDoItem(todoText, false));
+    }
   }
 }

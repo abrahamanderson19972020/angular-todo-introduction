@@ -13,6 +13,21 @@
     >
   </mat-toolbar>
 </div>
+<div class="inputContainer">
+  <mat-form-field class="fullWidth">
+    <mat-label style="padding-left: 5px">New To Do</mat-label>
+    <input matInput placeholder="Enter New To Do" #todoText />
+    <button
+      matSuffix
+      mat-raised-button
+      color="accent"
+      class="addButton"
+      (click)="addTask(todoText.value); todoText.value = ''"
+    >
+      Add
+    </button>
+  </mat-form-field>
+</div>
 
 <div class="tableContainer">
   <table mat-table [dataSource]="items" class="mat-elevation-z3 fullWidth">
@@ -38,4 +53,11 @@
     <tr mat-header-row *matHeaderRowDef="['id', 'task', 'done']"></tr>
     <tr mat-row *matRowDef="let row; columns: ['id', 'task', 'done']"></tr>
   </table>
+</div>
+<div class="toggleContainer">
+  <span class="spacer"></span>
+  <mat-slide-toggle [(ngModel)]="showCompletedTodos">
+    <span style="color: brown">Show Completed Items</span>
+  </mat-slide-toggle>
+  <span class="spacer"></span>
 </div>
